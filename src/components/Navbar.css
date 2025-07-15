@@ -1,0 +1,64 @@
+.top-bar {
+  background-color: #2C318C;
+  color: white;
+  font-size: 16px;
+  padding: 6px 20px;
+
+  display: flex;
+  justify-content: flex-end;  /* Align to right */
+  align-items: center;
+  gap: 8px;                   /* Space between flag and text */
+}
+
+.flag-icon {
+  width: 18px;
+  height: auto;
+}
+
+
+/* Main White Navbar */
+.nav-bar {
+  background-color: white;
+  padding: 12px 0 12px 20px; /* Keep left padding, remove right padding */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  height: 30px;
+}
+
+.nav-container {
+  max-width: 1396px;
+  width: 100%;              /* Full width */
+  margin: auto;
+  display: flex;
+  align-items: center;
+  
+  /* no justify-content to allow flex grow */
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2C318C;
+  padding-right: 20px;
+}
+
+.nav-links {
+  margin-left: auto;       /* Push nav links all the way right */
+  display: flex;
+  align-items: center;
+  padding-right: 40px;     /* Extra padding on right to push further right */
+}
+
+.nav-links a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #181818;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
