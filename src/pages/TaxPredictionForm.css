@@ -1,0 +1,68 @@
+/* TaxPredictionForm.css */
+
+.prediction-form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 2px solid #2a9d8f;
+  border-radius: 10px;
+  background-color: #f0f8f7;
+  box-shadow: 0 4px 8px rgba(42, 157, 143, 0.3);
+}
+
+.prediction-form-container h2 {
+  text-align: center;
+  color: #264653;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.prediction-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.prediction-form-container input,
+.prediction-form-container select {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1.5px solid #2a9d8f;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.prediction-form-container input:focus,
+.prediction-form-container select:focus {
+  outline: none;
+  border-color: #e76f51;
+}
+
+.prediction-form-container button {
+  background-color: #2a9d8f;
+  color: white;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.prediction-form-container button:hover {
+  background-color: #264653;
+}
+
+.result {
+  margin-top: 25px;
+  padding: 15px;
+  border: 2px solid #e76f51;
+  border-radius: 8px;
+  background-color: #fff4f1;
+  color: #e76f51;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
