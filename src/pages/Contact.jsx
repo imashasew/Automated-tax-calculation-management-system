@@ -1,7 +1,41 @@
-import React from 'react';
-import './Contact.css';  // Import the separate CSS file
+import React, { useState } from 'react';
+import './Contact.css';
 
 export default function Contact() {
+  const [form, setForm] = useState({ email: '', name: '', subject: '', message: '' });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (res.status === 201) {
+        alert('Message sent successfully!');
+        setForm({ email: '', name: '', subject: '', message: '' });
+      } else {
+        alert(data.error || 'Failed to send message.');
+      }
+    } catch (err) {
+      alert('Failed to send message.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="contact-page bg-white min-h-screen">
       <main className="contact-main">
@@ -12,28 +46,43 @@ export default function Contact() {
 
         <div className="contact-content">
           {/* Contact Form */}
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <input
               type="email"
+              name="email"
               placeholder="Your Email"
               className="contact-input"
+              value={form.email}
+              onChange={handleChange}
+              required
             />
             <input
               type="text"
+              name="name"
               placeholder="Name"
               className="contact-input"
+              value={form.name}
+              onChange={handleChange}
+              required
             />
             <input
               type="text"
+              name="subject"
               placeholder="Subject"
               className="contact-input"
+              value={form.subject}
+              onChange={handleChange}
             />
             <textarea
+              name="message"
               placeholder="Message"
               className="contact-textarea"
+              value={form.message}
+              onChange={handleChange}
+              required
             />
-            <button type="submit" className="contact-button">
-              SEND
+            <button type="submit" className="contact-button" disabled={loading}>
+              {loading ? 'Sending...' : 'SEND'}
             </button>
           </form>
 
